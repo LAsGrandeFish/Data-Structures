@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Define the Node struct
-typedef struct Node {
-    int data;
-    struct Node* next_node;
-} Node;
+#include "node.h" 
 
 // Function to initialize a new Node with data
 Node* create_node(int data) {
@@ -33,20 +28,3 @@ Node* get_next(Node* node) {
 void set_next(Node* node, Node* next_node) {
     node->next_node = next_node;
 }
-
-// int main() { // alawys need a main() in c/++ - thought there some ways to do without
-//     // Example usage
-//     Node* node1 = create_node(10);
-//     Node* node2 = create_node(20);
-//     set_next(node1, node2);
-
-//     printf("Data in node1: %d\n", get_data(node1));
-//     printf("Data in node2: %d\n", get_data(node2));
-
-//     // Free allocated memory
-//     free(node1);
-//     free(node2);
-//     printf("we are here");
-
-//     return 0;
-// }

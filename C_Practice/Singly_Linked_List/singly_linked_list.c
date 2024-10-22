@@ -1,14 +1,7 @@
 #include <stdio.h> // includes printf
 #include <stdlib.h>
-
-#include "node.c"
-
-typedef struct SinglyLinkedList 
-{
-    struct Node* head;
-    struct Node* tail;
-    int size;
-} SinglyLinkedList;
+#include "singly_linked_list.h"
+#include "node.h"
 
 SinglyLinkedList* create_singly_linked_list()
 {
@@ -28,7 +21,3 @@ int is_empty(SinglyLinkedList* sll)
 {
     return sll->size == 0;
 }
-
-// int main() {
-//     // printf("SinglyLinkedList.c compliled");
-// }
