@@ -20,9 +20,9 @@ int is_empty(SinglyLinkedList* sll) {
 }
 
 void add_to_back(SinglyLinkedList* sll, int data) {
-    if (sll == NULL || data == NULL) {
-        exit(1);
-    }
+    // if (sll == NULL || data == NULL) {
+    //     exit(1);
+    // }
     Node* new_node = create_node(data);
     if (sll->size == 0) {
         sll->head = new_node;

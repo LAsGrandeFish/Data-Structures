@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "C:\Users\ivanz\OneDrive\Studious_Foo\C_Practice\Unity-master\src\unity.h"
-#include "C:\Users\ivanz\OneDrive\Studious_Foo\C_Practice\Unity-master\src\unity.c"
-
-#include "singly_linked_list.c"
+#include "..\Unity-master\src\unity.h"
+#include "singly_linked_list.h"
 
 void setUp(void)
 {
