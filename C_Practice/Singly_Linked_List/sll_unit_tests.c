@@ -36,6 +36,15 @@ void test_sll_add_to_front(void) {
     TEST_ASSERT_EQUAL_INT(get_head(sll)->data, 11);
 }
 
+// void test_sll_display(void) {
+//     SinglyLinkedList* sll = create_singly_linked_list();
+//     add_to_front(3);
+//     add_to_back(9);
+//     add_to_front(1);
+//     add_to_back(5);
+
+// }
+
 void test_sll_get_head(void) {
     SinglyLinkedList* sll = create_singly_linked_list();
     Node* node_1 = create_node(12);
