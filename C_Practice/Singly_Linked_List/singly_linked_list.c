@@ -32,3 +32,15 @@ void add_to_back(SinglyLinkedList* sll, int data) {
     sll->tail = new_node;
     sll->size++; 
 }
+
+Node* get_head(SinglyLinkedList* sll) {
+    return sll->head;
+}
+
+Node* get_tail(SinglyLinkedList* sll) {
+    return sll->tail;
+}
+
+int get_size(SinglyLinkedList* sll) {
+    return sll->size;
+}
