@@ -33,6 +33,17 @@ void add_to_back(SinglyLinkedList* sll, int data) {
     sll->size++; 
 }
 
+void add_to_front(SinglyLinkedList* sll, int data) {
+    Node* new_node = create_node(data);
+    if (sll->size == 0) {
+        sll->tail = new_node;
+    } else {
+        set_next(new_node, sll->head);
+    }
+    sll->head = new_node;
+    sll->size++;
+}
+
 Node* get_head(SinglyLinkedList* sll) {
     return sll->head;
 }

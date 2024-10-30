@@ -25,9 +25,16 @@ void test_sll_add_to_back(void)
     add_to_back(sll, 10);
     add_to_back(sll, 11);
     TEST_ASSERT_EQUAL_INT(get_size(sll), 2);
+    TEST_ASSERT_EQUAL_INT(get_tail(sll)->data, 11);
 }
 
-
+void test_sll_add_to_front(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 10);
+    add_to_front(sll, 11);
+    TEST_ASSERT_EQUAL_INT(get_size(sll), 2);
+    TEST_ASSERT_EQUAL_INT(get_head(sll)->data, 11);
+}
 
 void test_sll_get_head(void) {
     SinglyLinkedList* sll = create_singly_linked_list();
@@ -54,7 +61,8 @@ int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_sll_is_empty);
     RUN_TEST(test_sll_add_to_back);
-    
+    RUN_TEST(test_sll_add_to_front);
+
     RUN_TEST(test_sll_get_head);
     RUN_TEST(test_sll_get_tail);
     RUN_TEST(test_sll_get_size);
