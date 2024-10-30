@@ -13,21 +13,6 @@ void tearDown(void)
     // tearDown function can contain anything you would like to run after each test
 }
 
-void test_sll_get_head(void) {
-    SinglyLinkedList* sll = create_singly_linked_list();
-    Node* node_1 = create_node(12);
-    sll->head = node_1;
-    TEST_ASSERT_EQUAL_PTR(node_1, get_head(sll));
-}
-
-void test_sll_get_tail(void) {
-
-}
-
-void test_sll_get_size(void) {
-    
-}
-
 void test_sll_is_empty(void) 
 {
     SinglyLinkedList* sll_zero = create_singly_linked_list();
@@ -42,11 +27,37 @@ void test_sll_add_to_back(void)
     TEST_ASSERT_EQUAL_INT(get_size(sll), 2);
 }
 
+
+
+void test_sll_get_head(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    Node* node_1 = create_node(12);
+    sll->head = node_1;
+    sll->tail = node_1;
+    TEST_ASSERT_EQUAL_PTR(node_1, get_head(sll));
+}
+
+void test_sll_get_tail(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    Node* node_1 = create_node(12);
+    sll->head = node_1;
+    sll->tail = node_1;
+    TEST_ASSERT_EQUAL_PTR(node_1, get_tail(sll));
+}
+
+void test_sll_get_size(void) {
+    SinglyLinkedList* sll_zero = create_singly_linked_list();
+    TEST_ASSERT_EQUAL_INT(get_size(sll_zero), 0);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_sll_is_empty);
     RUN_TEST(test_sll_add_to_back);
+    
     RUN_TEST(test_sll_get_head);
+    RUN_TEST(test_sll_get_tail);
+    RUN_TEST(test_sll_get_size);
     printf(">>> compiled and ran successfully");
     return UNITY_END();
 }
