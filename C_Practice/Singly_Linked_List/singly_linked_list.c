@@ -54,6 +54,8 @@ int* display(SinglyLinkedList* sll) {
     int index = 0;
     while (curr != NULL) {
         array[index] = curr->data;
+        // printf("%d, ", curr->data);
+        curr = get_next(curr);
         index++;
     }
     return array;
