@@ -51,8 +51,25 @@ void insert_after_node(SinglyLinkedList* sll, int pre_node_data, int data) {
             Node* new_node = create_node(data);
             set_next(new_node, get_next(curr));
             set_next(curr, new_node);
+            sll->size++;
         }
-        curr = get_next(curr);
+        curr = get_next(curr);  
+    }
+}
+
+void delete_node(SinglyLinkedList* sll, int data) {
+    if (sll->head->data == data) {
+        sll->head = get_next(sll->head);
+        sll->size--;
+    }
+    Node* prev = sll->head;
+    Node* curr = get_next(sll->head);
+    while (curr != NULL) {
+        if (curr->data == data) {
+            set_next(prev, get_next(curr));
+            sll->size--;
+            return;
+        }
     }
 }
 

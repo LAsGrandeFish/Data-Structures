@@ -63,6 +63,10 @@ void test_sll_insert_after_node(void) {
     TEST_ASSERT_EQUAL_INT(8, data_array[3]);
 }
 
+void test_sll_delete_node(void) {
+    
+}
+
 void test_sll_get_head(void) {
     SinglyLinkedList* sll = create_singly_linked_list();
     Node* node_1 = create_node(12);
