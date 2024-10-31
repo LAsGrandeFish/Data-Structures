@@ -36,7 +36,7 @@ void test_sll_add_to_front(void) {
     TEST_ASSERT_EQUAL_INT(get_head(sll)->data, 11);
 }
 
-void test_sll_display(void) {
+void test_sll_display(void) { // can be used to debug other methods
     SinglyLinkedList* sll = create_singly_linked_list();
     add_to_front(sll, 3);
     add_to_back(sll, 9);
@@ -49,6 +49,18 @@ void test_sll_display(void) {
     for (int i = 0; i < get_size(sll); i++) {
         TEST_ASSERT_EQUAL_INT(element_array[i], expected_array[i]);
     }
+}
+
+void test_sll_insert_after_node(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 1);
+    add_to_back(sll, 2);
+    add_to_back(sll, 3);
+    add_to_back(sll, 4);
+    insert_after_node(sll, 3, 8);
+
+    int* data_array = display(sll);
+    TEST_ASSERT_EQUAL_INT(8, data_array[3]);
 }
 
 void test_sll_get_head(void) {
@@ -78,6 +90,7 @@ int main(void) {
     RUN_TEST(test_sll_add_to_back);
     RUN_TEST(test_sll_add_to_front); // 3
     RUN_TEST(test_sll_display);
+    RUN_TEST(test_sll_insert_after_node); // 5 
 
     RUN_TEST(test_sll_get_head);
     RUN_TEST(test_sll_get_tail);

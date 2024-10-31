@@ -44,8 +44,20 @@ void add_to_front(SinglyLinkedList* sll, int data) {
     sll->size++;
 }
 
+void insert_after_node(SinglyLinkedList* sll, int pre_node_data, int data) {
+    Node* curr = sll->head;
+    while (curr != NULL) {
+        if (curr->data == pre_node_data) {
+            Node* new_node = create_node(data);
+            set_next(new_node, get_next(curr));
+            set_next(curr, new_node);
+        }
+        curr = get_next(curr);
+    }
+}
+
 int* display(SinglyLinkedList* sll) {
-    if (sll->size == 0) {
+    if (sll->size == 0) {   
         int* array = (int*)malloc(sizeof(NULL));
         return array;
     }
