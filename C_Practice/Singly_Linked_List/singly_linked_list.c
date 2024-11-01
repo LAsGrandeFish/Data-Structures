@@ -70,7 +70,38 @@ void delete_node(SinglyLinkedList* sll, int data) {
             sll->size--;
             return;
         }
+        curr = get_next(curr);
     }
+}
+
+void delete_node_at_position(SinglyLinkedList* sll, int position) {
+    if (position == 0) {
+        sll->head = get_next(sll->head);
+        sll->size--;
+    }
+    Node* prev = sll->head;
+    Node* curr = get_next(sll->head);
+    int curr_idx = 1;
+    while (curr != NULL) {
+        if (position == curr_idx) {
+            set_next(prev, get_next(curr));
+            sll->size--;
+            return;
+        }
+        curr = get_next(curr);
+        curr_idx++;
+    }
+}
+
+int search(SinglyLinkedList* sll, int key) {
+    Node* curr = sll->head; 
+    while (curr != NULL) {
+        if (curr->data == key) {
+            return 1;
+        }
+        curr = get_next(curr);
+    }
+    return 0;
 }
 
 int* display(SinglyLinkedList* sll) {

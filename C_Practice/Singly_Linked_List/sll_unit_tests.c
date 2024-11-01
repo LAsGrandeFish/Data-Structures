@@ -75,6 +75,29 @@ void test_sll_delete_node(void) {
     TEST_ASSERT_EQUAL_INT(3, get_size(sll));
 }
 
+void test_sll_delete_node_at_position(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 1);
+    add_to_back(sll, 2);
+    add_to_back(sll, 3);
+    add_to_back(sll, 4);
+
+    TEST_ASSERT_EQUAL_INT(4, get_size(sll));
+    delete_node_at_position(sll, 2);
+    TEST_ASSERT_EQUAL_INT(3, get_size(sll));
+    delete_node_at_position(sll, 0);
+    TEST_ASSERT_EQUAL_INT(2, get_size(sll));
+}
+
+void test_sll_search(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 1);
+    add_to_back(sll, 2);
+    add_to_back(sll, 3);
+    add_to_back(sll, 4);
+
+    TEST_ASSERT_TRUE(search(sll, 2));
+}
 void test_sll_get_head(void) {
     SinglyLinkedList* sll = create_singly_linked_list();
     Node* node_1 = create_node(12);
@@ -104,6 +127,8 @@ int main(void) {
     RUN_TEST(test_sll_display);
     RUN_TEST(test_sll_insert_after_node); // 5 
     RUN_TEST(test_sll_delete_node);
+    RUN_TEST(test_sll_delete_node_at_position); // 7
+    RUN_TEST(test_sll_search);
 
     RUN_TEST(test_sll_get_head);
     RUN_TEST(test_sll_get_tail);
