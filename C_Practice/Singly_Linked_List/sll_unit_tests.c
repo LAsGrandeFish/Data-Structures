@@ -64,7 +64,15 @@ void test_sll_insert_after_node(void) {
 }
 
 void test_sll_delete_node(void) {
-    
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 1);
+    add_to_back(sll, 2);
+    add_to_back(sll, 3);
+    add_to_back(sll, 4);
+
+    TEST_ASSERT_EQUAL_INT(4, get_size(sll));
+    delete_node(sll, 2);
+    TEST_ASSERT_EQUAL_INT(3, get_size(sll));
 }
 
 void test_sll_get_head(void) {
@@ -95,6 +103,7 @@ int main(void) {
     RUN_TEST(test_sll_add_to_front); // 3
     RUN_TEST(test_sll_display);
     RUN_TEST(test_sll_insert_after_node); // 5 
+    RUN_TEST(test_sll_delete_node);
 
     RUN_TEST(test_sll_get_head);
     RUN_TEST(test_sll_get_tail);
