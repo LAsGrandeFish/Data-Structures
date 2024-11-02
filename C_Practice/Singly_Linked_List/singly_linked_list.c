@@ -20,9 +20,6 @@ int is_empty(SinglyLinkedList* sll) {
 }
 
 void add_to_back(SinglyLinkedList* sll, int data) {
-    // if (sll == NULL || data == NULL) {
-    //     exit(1);
-    // }
     Node* new_node = create_node(data);
     if (sll->size == 0) {
         sll->head = new_node;
@@ -104,9 +101,37 @@ int search(SinglyLinkedList* sll, int key) {
     return 0;
 }
 
+void reverse(SinglyLinkedList* sll) {
+    if (get_size(sll) == 1) {
+        return;
+    } else if (get_size(sll) == 2) {
+        set_next(sll->tail, sll->head);
+        set_next(sll->head, NULL);
+
+        sll->head = sll->tail;
+        sll->tail = get_next(sll->tail);
+        return;
+    } else {
+        Node* prev = NULL;
+        Node* curr = sll->head;
+        Node* next = get_next(curr);
+
+        while (next != NULL) {
+            set_next(curr, prev);
+            prev = curr;
+            curr = next;
+            next = get_next(next); 
+        }
+        // at this point curr = sll->tail
+        set_next(curr, prev);
+        sll->tail = sll->head;
+        sll->head = curr;
+    }
+}
+
 int* display(SinglyLinkedList* sll) {
     if (sll->size == 0) {   
-        int* array = (int*)malloc(sizeof(NULL));
+        int* array = (int*)malloc(sizeof(NULL));    
         return array;
     }
     int* array = (int*)malloc(get_size(sll) * sizeof(int));

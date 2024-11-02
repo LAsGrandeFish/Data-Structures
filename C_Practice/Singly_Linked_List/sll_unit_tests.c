@@ -98,6 +98,21 @@ void test_sll_search(void) {
 
     TEST_ASSERT_TRUE(search(sll, 2));
 }
+
+void test_sll_reverse(void) {
+    SinglyLinkedList* sll = create_singly_linked_list();
+    add_to_front(sll, 1);
+    add_to_back(sll, 2);
+    add_to_back(sll, 3);
+    add_to_back(sll, 4);
+
+    reverse(sll);
+    
+    TEST_ASSERT_EQUAL_INT(4, (get_head(sll)->data));
+    TEST_ASSERT_EQUAL_INT(1, (get_tail(sll)->data));
+    TEST_ASSERT_EQUAL_INT(3, get_data(get_head(sll)->next_node));
+}
+
 void test_sll_get_head(void) {
     SinglyLinkedList* sll = create_singly_linked_list();
     Node* node_1 = create_node(12);
@@ -129,6 +144,7 @@ int main(void) {
     RUN_TEST(test_sll_delete_node);
     RUN_TEST(test_sll_delete_node_at_position); // 7
     RUN_TEST(test_sll_search);
+    RUN_TEST(test_sll_reverse); // 9
 
     RUN_TEST(test_sll_get_head);
     RUN_TEST(test_sll_get_tail);
